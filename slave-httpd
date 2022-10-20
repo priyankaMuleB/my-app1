@@ -14,7 +14,8 @@ pipeline {
 				}	
 			stage ("index"){
 				steps {
-					sh "sudo echo 'welcome to slave httpd server' >> /var/www/html/index.html "
+				    sh "sudo chmod -R 777 /var/www/html/"
+					sh "sudo echo '<h1> welcome to slave httpd server </h1>' > /var/www/html/index.html "
 					}
 				}
 			}	
