@@ -1,0 +1,21 @@
+pipeline {
+		agent {
+		    label 
+		    {label "QA"
+			}
+        }   
+		stages{
+			stage ("httpd"){
+					
+				steps {
+					sh "sudo yum install httpd -y"
+					sh "sudo service httpd start"
+					}
+				}	
+			stage ("index"){
+				steps {
+					sh "sudo echo 'welcome to slave httpd server' >> /var/www/html/index.html "
+					}
+				}
+			}	
+		}
